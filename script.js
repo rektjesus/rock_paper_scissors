@@ -3,6 +3,9 @@ let computerChoice;
 let userChoice = prompt("Rock!? Paper!? Scissors!? SHOOT!", "");
 let result;
 
+// Make player selection case-insensitive
+userChoice = userChoice.toLowerCase();
+
 // Random number generator
 function randomNumber(max) {
     max = Math.floor(max);
