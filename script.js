@@ -3,16 +3,19 @@ let computerChoice;
 let userChoice = prompt("Rock!? Paper!? Scissors!? SHOOT!", "");
 let result;
 
+// Random number generator
 function randomNumber(max) {
     max = Math.floor(max);
     return Math.floor(Math.random() * (max + 1));
 }
 
+// Computers choice using random number generator
 function computerPlay(arr) {
     randNum = randomNumber(2);
     computerChoice = arr[randNum];
 }
 
+// Function for one round of the game
 function round(userChoice, computerChoice) {
     if (userChoice === "rock" && computerChoice === "scissors") {
         result = "Computer chose scissors... You WIN!";
