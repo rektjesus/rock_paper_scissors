@@ -8,5 +8,9 @@ function randomNumber(max) {
 }
 
 function computerPlay(arr) {
-
+    randNum = randomNumber(2);
+    computerChoice = arr[randNum];
 }
+
+computerPlay(arr);
+console.log(computerChoice);
