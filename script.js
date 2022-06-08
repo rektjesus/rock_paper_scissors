@@ -1,10 +1,7 @@
 const arr = ["rock", "paper", "scissors"];
 let computerChoice;
-let userChoice = prompt("Rock!? Paper!? Scissors!? SHOOT!", "");
+let userChoice;
 let result;
-
-// Make player selection case-insensitive
-userChoice = userChoice.toLowerCase();
 
 // Random number generator
 function randomNumber(max) {
@@ -20,6 +17,11 @@ function computerPlay(arr) {
 
 // Function for one round of the game
 function round(userChoice, computerChoice) {
+
+    userChoice = prompt("Rock!? Paper!? Scissors!? SHOOT!", "");
+    // Make player selection case-insensitive
+    userChoice = userChoice.toLowerCase();
+
     if (userChoice === "rock" && computerChoice === "scissors") {
         result = "Computer chose scissors... You WIN!";
     }
@@ -44,6 +46,8 @@ function round(userChoice, computerChoice) {
 
     return result;
 }
+
+function game()
 
 computerPlay(arr);
 round(userChoice, computerChoice);
