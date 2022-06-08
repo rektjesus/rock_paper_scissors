@@ -76,8 +76,11 @@ function game() {
     if (resultComputer > resultUser) {
         console.log("YOU LOST TO A COMPUTER IDIOT");
     }
-    else {
+    else if (resultComputer < resultUser) {
         console.log("YOU WON THE PRIZE, CONGRATS!");
+    }
+    else {
+        console.log("NOBODY WINS LOL");
     }
 }
 
