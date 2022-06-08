@@ -2,6 +2,8 @@ const arr = ["rock", "paper", "scissors"];
 let computerChoice;
 let userChoice;
 let result;
+let resultComputer = 0;
+let resultUser = 0;
 
 // Random number generator
 function randomNumber(max) {
@@ -19,6 +21,7 @@ function computerPlay(arr) {
 function round(userChoice, computerChoice) {
 
     userChoice = prompt("Rock!? Paper!? Scissors!? SHOOT!", "");
+
     // Make player selection case-insensitive
     userChoice = userChoice.toLowerCase();
 
@@ -47,8 +50,39 @@ function round(userChoice, computerChoice) {
     return result;
 }
 
-function game()
+// Function to play 5 games, unless its a tie, then more games have to be played until 5 wins occur
+function game() {
+    for (i = 0; i < 5; i++) {
 
-computerPlay(arr);
-round(userChoice, computerChoice);
-console.log(result);
+        computerPlay(arr);
+        round(userChoice, computerChoice);
+
+        if (result === "Computer chose scissors... You WIN!" || result === "Computer chose rock... You WIN!" || result === "Computer chose paper... You WIN!") {
+
+            resultUser++;
+
+        }
+        else if (result === "Computer chose rock... You LOSE!" || result === "Computer chose paper... You LOSE!" || result === "Computer chose scissors... You LOSE!") {
+
+            resultComputer++;
+
+        }
+
+        // If it's a TIE, dont count the round into the *for* function
+        else {
+            i--;
+        }
+        console.log(result);
+        console.log("Your score is: " + resultUser + " Computers score is: " + resultComputer);
+    }
+
+    // Show FINAL result of who won the best out of 5 game
+    if (resultComputer > resultUser) {
+        console.log("YOU LOST TO A COMPUTER IDIOT");
+    }
+    else {
+        console.log("YOU WON THE PRIZE, CONGRATS!");
+    }
+}
+
+game();
