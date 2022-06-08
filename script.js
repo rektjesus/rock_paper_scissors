@@ -68,10 +68,6 @@ function game() {
 
         }
 
-        // If it's a TIE, dont count the round into the *for* function
-        else {
-            i--;
-        }
         console.log(result);
         console.log("Your score is: " + resultUser + " Computers score is: " + resultComputer);
     }
