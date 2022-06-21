@@ -20,7 +20,7 @@ function computerPlay(arr) {
 // Function for one round of the game
 function round(userChoice, computerChoice) {
 
-    userChoice = prompt("Rock!? Paper!? Scissors!? SHOOT!", "");
+    //userChoice = prompt("Rock!? Paper!? Scissors!? SHOOT!", "");
 
     // Make player selection case-insensitive
     userChoice = userChoice.toLowerCase();

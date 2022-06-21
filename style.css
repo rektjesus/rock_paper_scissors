@@ -1,0 +1,127 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    font-family: Robot Reavers, Roboto, sans-serif;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 30px;
+}
+
+
+/* NAVBAR SECTION */
+
+.navbar {
+    background-color: #361d32;
+    height: 60px;
+    width: auto;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.navbar .logo {
+    font-size: 40px;
+    color: #f55951;
+    font-weight: bold;
+}
+
+
+/* MAIN BODY SECTION */
+
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 800px;
+}
+
+.header .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: auto;
+    margin-bottom: auto;
+    height: 100%;
+    gap: 10em;
+}
+
+.container h3 {
+    margin-top: 80px;
+    font-size: 26px;
+}
+
+.container .buttons {
+    display: flex;
+    gap: 60px;
+}
+
+.container .score {
+    display: flex;
+    justify-content: space-between;
+    gap: 100px;
+    font-size: 3em;
+    align-items: center;
+}
+
+.you {
+    align-self: flex-start;
+}
+
+.bot {
+    align-self: flex-end;
+}
+
+.score .container {
+    display: flex;
+    flex-direction: row;
+    font-size: 80px;
+    color: #f55951;
+    gap: 10px;
+}
+
+.button {
+    background-color: #f55951;
+    border: solid 0.5em #f55951;
+    border-radius: 3em;
+    box-shadow: 5px 5px 10px 0px #ff9892;
+    width: 15em;
+    height: 15em;
+}
+
+.button:active {
+    transition: 100ms;
+    transform: scale(0.95);
+    border-color: #8a3531;
+    box-shadow: 3px 3px 5px 0px #ff9892;
+}
+
+
+
+/* FOOTER SECTION */
+
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: auto;
+    height: 60px;
+    background-color: #543c52;
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+    color: #f55951;
+}
