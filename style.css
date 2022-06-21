@@ -105,6 +105,7 @@ body {
 
 #user_output_active,
 #bot_output_active {
+    transition-duration: 300ms;
     background-color: #f55951;
     border: solid 0.5em #f55951;
     border-radius: 20%;

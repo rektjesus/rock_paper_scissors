@@ -1,9 +1,10 @@
 const arr = ["rock", "paper", "scissors"];
-let computerChoice;
+let botChoice;
 let userChoice;
 let result;
-let resultComputer = 0;
+let resultBot = 0;
 let resultUser = 0;
+let scoreCount = 0;
 
 // HTML elements
 const head = document.querySelector("h3");
@@ -22,76 +23,135 @@ let img2 = document.createElement("img");
 function randomNumber(max) {
     max = Math.floor(max);
     return Math.floor(Math.random() * (max + 1));
-}
+};
 
 // Computers choice using random number generator
 function computerPlay(array) {
     randNum = randomNumber(2);
-    computerChoice = array[randNum];
-    return computerChoice;
-}
+    botChoice = array[randNum];
+    return botChoice;
+};
+
+function playerPlay() {
+    rockBtn.addEventListener("click", function () {
+        computerPlay(arr);
+        userChoice = "rock";
+        round(userChoice, botChoice);
+        game();
+    });
+    paperBtn.addEventListener("click", function () {
+        computerPlay(arr);
+        userChoice = "rock";
+        round(userChoice, botChoice);
+        game();
+    });
+    scissorsBtn.addEventListener("click", function () {
+        computerPlay(arr);
+        userChoice = "rock";
+        round(userChoice, botChoice);
+        game();
+    });
+};
+
+
 
 // Function for one round of the game
-function round(userChoice, computerChoice) {
+function round(userChoice, botChoice) {
 
-    if (userChoice === "rock" && computerChoice === "scissors") {
+    if (userChoice === "rock" && botChoice === "scissors") {
         result = "win";
+        resultUser++;
+        winner.textContent = "YOU WIN THIS ROUND";
+        userOutput.appendChild(img1);
+        scoreUser.textContent = resultUser;
     }
-    else if (userChoice === "scissors" && computerChoice === "rock") {
+    else if (userChoice === "scissors" && botChoice === "rock") {
         result = "lose";
+        resultBot++;
+        winner.textContent = "YOU LOSE THIS ROUND";
+        scoreBot.textContent = resultBot;
     }
-    else if (userChoice === "paper" && computerChoice === "rock") {
+    else if (userChoice === "paper" && botChoice === "rock") {
         result = "win";
+        resultUser++;
+        winner.textContent = "YOU WIN THIS ROUND";
+        scoreUser.textContent = resultUser;
     }
-    else if (userChoice === "rock" && computerChoice === "paper") {
+    else if (userChoice === "rock" && botChoice === "paper") {
         result = "lose";
+        resultBot++;
+        winner.textContent = "YOU LOSE THIS ROUND";
+        scoreBot.textContent = resultBot;
     }
-    else if (userChoice === "scissors" && computerChoice === "paper") {
+    else if (userChoice === "scissors" && botChoice === "paper") {
         result = "win";
+        resultUser++;
+        winner.textContent = "YOU WIN THIS ROUND";
+        scoreUser.textContent = resultUser;
     }
-    else if (userChoice === "paper" && computerChoice === "scissors") {
+    else if (userChoice === "paper" && botChoice === "scissors") {
         result = "lose";
+        resultBot++;
+        winner.textContent = "YOU LOSE THIS ROUND";
+        scoreBot.textContent = resultBot;
     }
     else {
         result = "tie";
+        winner.textContent = "THIS ROUND WAS A TIE";
     }
 
     console.log(result);
     return result;
-}
+};
 
 // Function to play 5 games, unless its a tie, then more games have to be played until 5 wins occur
 
 function game() {
-    for (i = 0; i < 5; i++) {
 
-        if (result === "win") {
-
-            resultUser++;
-            scoreUser.textContent = resultUser;
-
+    if (scoreCount > 5) {
+        if (resultBot > resultUser) {
+            winner.textContent = "YOU LOST AGAINST A COMPUTER, WHAT A LOSER";
         }
-        else if (result === "lose") {
-
-            resultComputer++;
-            scoreBot.textContent = resultComputer;
-
+        else if (resultBot < resultUser) {
+            winner.textContent = "YOU WON! CONGRATULATIONS!";
         }
-
-        console.log(result);
-        console.log("Your score is: " + resultUser + " Computers score is: " + resultComputer);
+        else {
+            winner.textContent = "IT'S A TIE!";
+        }
     }
+    scoreCount++;
+
+
+    // for (i = 0; i < 5; i++) {
+
+    //     if (result === "win") {
+
+    //         resultUser++;
+    //         scoreUser.textContent = resultUser;
+
+    //     }
+    //     else if (result === "lose") {
+
+    //         resultBot++;
+    //         scoreBot.textContent = resultBot;
+
+    //     }
+
+    //     console.log(result);
+    //     console.log("Your score is: " + resultUser + " Computers score is: " + resultBot);
+    // }
 
     // Show FINAL result of who won the best out of 5 game
-    if (resultComputer > resultUser) {
-        console.log("YOU LOST TO A COMPUTER IDIOT");
-    }
-    else if (resultComputer < resultUser) {
-        console.log("YOU WON THE PRIZE, CONGRATS!");
-    }
-    else {
-        console.log("NOBODY WINS LOL");
-    }
-}
 
-game();
+    // if (resultBot > resultUser) {
+    //     console.log("YOU LOST TO A COMPUTER IDIOT");
+    // }
+    // else if (resultBot < resultUser) {
+    //     console.log("YOU WON THE PRIZE, CONGRATS!");
+    // }
+    // else {
+    //     console.log("NOBODY WINS LOL");
+    // }
+};
+
+playerPlay();
