@@ -7,6 +7,7 @@ let resultUser = 0;
 let scoreCount = 0;
 
 // HTML elements
+
 const head = document.querySelector("h3");
 const rockBtn = document.querySelector("#rock")
 const paperBtn = document.querySelector("#paper");
@@ -20,49 +21,39 @@ let img1 = document.createElement("img");
 let img2 = document.createElement("img");
 
 // Random number generator
+
 function randomNumber(max) {
     max = Math.floor(max);
     return Math.floor(Math.random() * (max + 1));
 };
 
 // Computers choice using random number generator
+
 function computerPlay(array) {
     randNum = randomNumber(2);
     botChoice = array[randNum];
     return botChoice;
 };
 
-function playerPlay() {
-    rockBtn.addEventListener("click", function () {
-        computerPlay(arr);
-        userChoice = "rock";
-        round(userChoice, botChoice);
-        game();
-    });
-    paperBtn.addEventListener("click", function () {
-        computerPlay(arr);
-        userChoice = "rock";
-        round(userChoice, botChoice);
-        game();
-    });
-    scissorsBtn.addEventListener("click", function () {
-        computerPlay(arr);
-        userChoice = "rock";
-        round(userChoice, botChoice);
-        game();
-    });
-};
+// Function to update UI
 
-
+function updateInterface(userChoice, botChoice) {
+    img1.src = `./img/${userChoice}.svg`;
+    img2.src = `./img/${botChoice}.svg`;
+    userOutput.appendChild(img1);
+    botOutput.appendChild(img2);
+    userOutput.id = "user_output_active";
+    botOutput.id = "bot_output_active";
+}
 
 // Function for one round of the game
+
 function round(userChoice, botChoice) {
 
     if (userChoice === "rock" && botChoice === "scissors") {
         result = "win";
         resultUser++;
         winner.textContent = "YOU WIN THIS ROUND";
-        userOutput.appendChild(img1);
         scoreUser.textContent = resultUser;
     }
     else if (userChoice === "scissors" && botChoice === "rock") {
@@ -107,8 +98,7 @@ function round(userChoice, botChoice) {
 // Function to play 5 games, unless its a tie, then more games have to be played until 5 wins occur
 
 function game() {
-
-    if (scoreCount > 5) {
+    if (scoreCount >= 4) {
         if (resultBot > resultUser) {
             winner.textContent = "YOU LOST AGAINST A COMPUTER, WHAT A LOSER";
         }
@@ -119,39 +109,31 @@ function game() {
             winner.textContent = "IT'S A TIE!";
         }
     }
-    scoreCount++;
-
-
-    // for (i = 0; i < 5; i++) {
-
-    //     if (result === "win") {
-
-    //         resultUser++;
-    //         scoreUser.textContent = resultUser;
-
-    //     }
-    //     else if (result === "lose") {
-
-    //         resultBot++;
-    //         scoreBot.textContent = resultBot;
-
-    //     }
-
-    //     console.log(result);
-    //     console.log("Your score is: " + resultUser + " Computers score is: " + resultBot);
-    // }
-
-    // Show FINAL result of who won the best out of 5 game
-
-    // if (resultBot > resultUser) {
-    //     console.log("YOU LOST TO A COMPUTER IDIOT");
-    // }
-    // else if (resultBot < resultUser) {
-    //     console.log("YOU WON THE PRIZE, CONGRATS!");
-    // }
-    // else {
-    //     console.log("NOBODY WINS LOL");
-    // }
+    else {
+        scoreCount++;
+    }
 };
 
-playerPlay();
+// Event listeners for each button
+
+rockBtn.addEventListener("click", function () {
+    userChoice = "rock";
+    computerPlay(arr);
+    round(userChoice, botChoice);
+    game();
+    updateInterface(userChoice, botChoice)
+});
+paperBtn.addEventListener("click", function () {
+    userChoice = "paper";
+    computerPlay(arr);
+    round(userChoice, botChoice);
+    game();
+    updateInterface(userChoice, botChoice)
+});
+scissorsBtn.addEventListener("click", function () {
+    userChoice = "scissors";
+    computerPlay(arr);
+    round(userChoice, botChoice);
+    game();
+    updateInterface(userChoice, botChoice)
+});
