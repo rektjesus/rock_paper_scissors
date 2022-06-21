@@ -108,6 +108,9 @@ function game() {
         else {
             winner.textContent = "IT'S A TIE!";
         }
+        rockBtn.setAttribute("disabled", 1);
+        paperBtn.setAttribute("disabled", 1);
+        scissorsBtn.setAttribute("disabled", 1);
     }
     else {
         scoreCount++;
