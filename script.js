@@ -5,6 +5,19 @@ let result;
 let resultComputer = 0;
 let resultUser = 0;
 
+// HTML elements
+const head = document.querySelector("h3");
+const rockBtn = document.querySelector("#rock")
+const paperBtn = document.querySelector("#paper");
+const scissorsBtn = document.querySelector("#scissors");
+const winner = document.querySelector("#winner");
+const userOutput = document.querySelector("#user_output");
+const botOutput = document.querySelector("#bot_output");
+const scoreUser = document.querySelector(".score_user");
+const scoreBot = document.querySelector(".score_bot");
+let img1 = document.createElement("img");
+let img2 = document.createElement("img");
+
 // Random number generator
 function randomNumber(max) {
     max = Math.floor(max);
@@ -12,59 +25,56 @@ function randomNumber(max) {
 }
 
 // Computers choice using random number generator
-function computerPlay(arr) {
+function computerPlay(array) {
     randNum = randomNumber(2);
-    computerChoice = arr[randNum];
+    computerChoice = array[randNum];
+    return computerChoice;
 }
 
 // Function for one round of the game
 function round(userChoice, computerChoice) {
 
-    //userChoice = prompt("Rock!? Paper!? Scissors!? SHOOT!", "");
-
-    // Make player selection case-insensitive
-    userChoice = userChoice.toLowerCase();
-
     if (userChoice === "rock" && computerChoice === "scissors") {
-        result = "Computer chose scissors... You WIN!";
+        result = "win";
     }
     else if (userChoice === "scissors" && computerChoice === "rock") {
-        result = "Computer chose rock... You LOSE!";
+        result = "lose";
     }
     else if (userChoice === "paper" && computerChoice === "rock") {
-        result = "Computer chose rock... You WIN!";
+        result = "win";
     }
     else if (userChoice === "rock" && computerChoice === "paper") {
-        result = "Computer chose paper... You LOSE!";
+        result = "lose";
     }
     else if (userChoice === "scissors" && computerChoice === "paper") {
-        result = "Computer chose paper... You WIN!";
+        result = "win";
     }
     else if (userChoice === "paper" && computerChoice === "scissors") {
-        result = "Computer chose scissors... You LOSE!";
+        result = "lose";
     }
     else {
-        result = "It's a TIE!";
+        result = "tie";
     }
 
+    console.log(result);
     return result;
 }
 
 // Function to play 5 games, unless its a tie, then more games have to be played until 5 wins occur
+
 function game() {
     for (i = 0; i < 5; i++) {
 
-        computerPlay(arr);
-        round(userChoice, computerChoice);
-
-        if (result === "Computer chose scissors... You WIN!" || result === "Computer chose rock... You WIN!" || result === "Computer chose paper... You WIN!") {
+        if (result === "win") {
 
             resultUser++;
+            scoreUser.textContent = resultUser;
 
         }
-        else if (result === "Computer chose rock... You LOSE!" || result === "Computer chose paper... You LOSE!" || result === "Computer chose scissors... You LOSE!") {
+        else if (result === "lose") {
 
             resultComputer++;
+            scoreBot.textContent = resultComputer;
 
         }
 
