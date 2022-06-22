@@ -12,6 +12,7 @@ const head = document.querySelector("h3");
 const rockBtn = document.querySelector("#rock")
 const paperBtn = document.querySelector("#paper");
 const scissorsBtn = document.querySelector("#scissors");
+const choices = document.querySelector(".choices");
 const winner = document.querySelector("#winner");
 const userOutput = document.querySelector("#user_output");
 const botOutput = document.querySelector("#bot_output");
@@ -44,12 +45,12 @@ function updateInterface(userChoice, botChoice) {
     botOutput.appendChild(img2);
     userOutput.id = "user_output_active";
     botOutput.id = "bot_output_active";
-}
+};
 
 // Function for one round of the game
 
 function round(userChoice, botChoice) {
-
+    head.className = "hide";
     if (userChoice === "rock" && botChoice === "scissors") {
         result = "win";
         resultUser++;
@@ -108,13 +109,46 @@ function game() {
         else {
             winner.textContent = "IT'S A TIE!";
         }
-        rockBtn.setAttribute("disabled", 1);
-        paperBtn.setAttribute("disabled", 1);
-        scissorsBtn.setAttribute("disabled", 1);
+        endGame();
     }
     else {
         scoreCount++;
     }
+};
+
+// Ends the game, disables buttons, adds reset button
+
+function endGame() {
+    rockBtn.setAttribute("disabled", 1);
+    paperBtn.setAttribute("disabled", 1);
+    scissorsBtn.setAttribute("disabled", 1);
+    choices.removeChild(userOutput);
+    choices.removeChild(botOutput);
+    const reset = document.createElement("button");
+    reset.id = "reset";
+    reset.textContent = "RESET GAME";
+    choices.appendChild(reset);
+    reset.addEventListener("click", resetGame);
+};
+
+// Resets the game to play again
+
+function resetGame() {
+    scoreCount = 0;
+    rockBtn.removeAttribute("disabled");
+    paperBtn.removeAttribute("disabled");
+    scissorsBtn.removeAttribute("disabled");
+    winner.textContent = "";
+    head.textContent = "START THE GAME BY CHOOSING";
+    choices.removeChild(reset);
+    userOutput.id = "user_output";
+    botOutput.id = "bot_output";
+    choices.appendChild(userOutput);
+    choices.appendChild(botOutput);
+    scoreBot.textContent = "0";
+    scoreUser.textContent = "0";
+    resultUser = 0;
+    resultBot = 0;
 };
 
 // Event listeners for each button
