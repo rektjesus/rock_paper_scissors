@@ -196,3 +196,10 @@ button:active {
     font-size: 20px;
     color: #f55951;
 }
+
+/* Temporary removal of footer on mobile devices */
+@media(max-width: 768px) {
+    .footer {
+        display: none;
+    }
+}
