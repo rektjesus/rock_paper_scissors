@@ -139,7 +139,7 @@ function resetGame() {
     paperBtn.removeAttribute("disabled");
     scissorsBtn.removeAttribute("disabled");
     winner.textContent = "";
-    head.textContent = "START THE GAME BY CHOOSING";
+    head.removeAttribute("class");
     choices.removeChild(reset);
     userOutput.id = "user_output";
     botOutput.id = "bot_output";

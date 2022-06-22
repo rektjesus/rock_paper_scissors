@@ -9,6 +9,7 @@ body {
     flex-direction: column;
     font-family: Robot Reavers, Roboto, sans-serif;
     height: 100%;
+    background-color: #271524;
 }
 
 .container {
@@ -21,7 +22,7 @@ body {
 /* NAVBAR SECTION */
 
 .navbar {
-    background-color: #361d32;
+    background-color: #543c52;
     height: 60px;
     min-width: 768px;
 }
@@ -36,6 +37,7 @@ body {
 .navbar .logo {
     font-size: 40px;
     color: #f55951;
+    text-shadow: 2px 2px 4px #57201d;
     font-weight: bold;
 }
 
@@ -63,6 +65,7 @@ body {
 .container h3 {
     margin-top: 80px;
     font-size: 26px;
+    color: #ef75ff;
 }
 
 .container .hide {
@@ -80,7 +83,7 @@ button {
     background-color: #f55951;
     border: 4px solid #f55951;
     border-radius: 20%;
-    box-shadow: 5px 5px 10px 0px #ff9892;
+    box-shadow: 0px 0px 10px 0px #be00af;
     width: 200px;
     height: 200px;
     transition: 100ms;
@@ -88,12 +91,14 @@ button {
 
 button:hover {
     transform: scale(1.1);
+    transition: 100ms;
+    box-shadow: 0px 0px 30px 0px #ff6af3;
 }
 
 button:active {
     transform: scale(0.95);
-    border-color: #8a3531;
-    box-shadow: 3px 3px 5px 0px #ff9892;
+    transition: 100ms;
+    box-shadow: 0px 0px 5px 0px #ff6af3;
 }
 
 /* Scoreboard */
@@ -108,17 +113,20 @@ button:active {
 
 .you {
     align-self: flex-start;
+    color: #af4eff;
 }
 
 .bot {
     align-self: flex-end;
+    color: #af4eff;
 }
 
 .score .container {
     display: flex;
     flex-direction: row;
     font-size: 80px;
-    color: #f55951;
+    color: #ef75ff;
+    text-shadow: 4px 4px 4px #873e91;
     gap: 10px;
 }
 
@@ -130,8 +138,9 @@ button:active {
 }
 
 #winner {
-    font-size: 26px;
+    font-size: 30px;
     font-weight: bold;
+    color: #ef75ff;
 }
 
 #user_output_active,
@@ -140,7 +149,7 @@ button:active {
     background-color: #f55951;
     border: solid 0.5em #f55951;
     border-radius: 20%;
-    box-shadow: 5px 5px 10px 0px #ff9892;
+    /* box-shadow: 0px 0px 10px 0px #be00af; */
     width: 200px;
     height: 200px;
 }
@@ -151,7 +160,7 @@ button:active {
     font-family: Robot Reavers, Roboto, sans-serif;
     font-size: 18px;
     border-radius: 30px;
-    box-shadow: 5px 5px 10px 0px #ff9892;
+    box-shadow: 0px 0px 10px 0px #be00af;
     width: 200px;
     height: 60px;
     transition: 100ms;
@@ -159,12 +168,14 @@ button:active {
 
 #reset:hover {
     transform: scale(1.1);
+    transition: 100ms;
+    box-shadow: 0px 0px 30px 0px #ff6af3;
 }
 
 #reset:active {
     transform: scale(0.95);
-    border-color: #8a3531;
-    box-shadow: 3px 3px 5px 0px #ff9892;
+    transition: 100ms;
+    box-shadow: 0px 0px 5px 0px #ff6af3;
 }
 
 
