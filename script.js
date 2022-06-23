@@ -36,6 +36,18 @@ function computerPlay(array) {
     return botChoice;
 };
 
+// Function to fade out an element and fade in an element
+
+function removeFadeOut(el, speed) {
+    var seconds = speed / 1000;
+    el.style.transition = "opacity " + seconds + "s ease";
+
+    el.style.opacity = 0;
+    setTimeout(function () {
+        el.parentNode.removeChild(el);
+    }, speed);
+}
+
 // Function to update UI
 
 function updateInterface(userChoice, botChoice) {
@@ -46,6 +58,26 @@ function updateInterface(userChoice, botChoice) {
     userOutput.id = "user_output_active";
     botOutput.id = "bot_output_active";
 };
+
+// Functions to play audio
+
+function audioClick() {
+    let audio = document.querySelector("#click");
+    audio.currentTime = 0;
+    audio.play()
+}
+
+function audioWin() {
+    let audio = document.querySelector("#win");
+    audio.currentTime = 0;
+    audio.play()
+}
+
+function audioLose() {
+    let audio = document.querySelector("#lose");
+    audio.currentTime = 0;
+    audio.play()
+}
 
 // Function for one round of the game
 
@@ -101,12 +133,15 @@ function round(userChoice, botChoice) {
 function game() {
     if (scoreCount >= 4) {
         if (resultBot > resultUser) {
+            audioLose();
             winner.textContent = "YOU LOST AGAINST A COMPUTER, WHAT A LOSER";
         }
         else if (resultBot < resultUser) {
+            audioWin();
             winner.textContent = "YOU WON! CONGRATULATIONS!";
         }
         else {
+            audioLose();
             winner.textContent = "IT'S A TIE!";
         }
         endGame();
@@ -135,6 +170,7 @@ function endGame() {
 
 function resetGame() {
     scoreCount = 0;
+    audioClick();
     rockBtn.removeAttribute("disabled");
     paperBtn.removeAttribute("disabled");
     scissorsBtn.removeAttribute("disabled");
@@ -155,6 +191,7 @@ function resetGame() {
 
 rockBtn.addEventListener("click", function () {
     userChoice = "rock";
+    audioClick();
     computerPlay(arr);
     round(userChoice, botChoice);
     game();
@@ -162,6 +199,7 @@ rockBtn.addEventListener("click", function () {
 });
 paperBtn.addEventListener("click", function () {
     userChoice = "paper";
+    audioClick();
     computerPlay(arr);
     round(userChoice, botChoice);
     game();
@@ -169,6 +207,7 @@ paperBtn.addEventListener("click", function () {
 });
 scissorsBtn.addEventListener("click", function () {
     userChoice = "scissors";
+    audioClick();
     computerPlay(arr);
     round(userChoice, botChoice);
     game();
