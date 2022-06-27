@@ -9,6 +9,7 @@ let scoreCount = 0;
 // HTML elements
 
 const head = document.querySelector("h3");
+const headContainer = document.querySelector("#header_container");
 const rockBtn = document.querySelector("#rock")
 const paperBtn = document.querySelector("#paper");
 const scissorsBtn = document.querySelector("#scissors");
@@ -157,12 +158,13 @@ function endGame() {
     rockBtn.setAttribute("disabled", 1);
     paperBtn.setAttribute("disabled", 1);
     scissorsBtn.setAttribute("disabled", 1);
-    choices.removeChild(userOutput);
-    choices.removeChild(botOutput);
+    // choices.removeChild(userOutput);
+    // choices.removeChild(botOutput);
     const reset = document.createElement("button");
     reset.id = "reset";
     reset.textContent = "RESET GAME";
-    choices.appendChild(reset);
+    choices.style.gap = "120px";
+    userOutput.after(reset);
     reset.addEventListener("click", resetGame);
 };
 
@@ -181,6 +183,7 @@ function resetGame() {
     botOutput.id = "bot_output";
     choices.appendChild(userOutput);
     choices.appendChild(botOutput);
+    choices.style.gap = "320px";
     scoreBot.textContent = "0";
     scoreUser.textContent = "0";
     resultUser = 0;

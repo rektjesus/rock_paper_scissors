@@ -162,6 +162,7 @@ button:active {
 
 #reset {
     background-color: #361d32;
+    align-self: center;
     color: #f55951;
     font-family: Robot Reavers, Roboto, sans-serif;
     font-size: 18px;
