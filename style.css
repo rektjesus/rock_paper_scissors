@@ -13,7 +13,16 @@ body {
     flex-direction: column;
     font-family: Robot Reavers, Roboto, sans-serif;
     height: 100%;
-    background-color: #271524;
+    background-color: var(--color-bg);
+}
+
+:root {
+    --color-bg: #f5f5f5;
+    --color-bg2: #ffffff;
+    --color-text: #242632;
+    --color-text-secondary: #455463;
+    --color-text-light: #7188a0;
+    --color-accent: #f55951;
 }
 
 .container {
@@ -27,7 +36,8 @@ body {
 
 .navbar {
     flex-shrink: 0;
-    background-color: #543c52;
+    background-color: var(--color-bg);
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.25);
     height: 60px;
     width: auto;
     min-width: 780px;
@@ -42,8 +52,7 @@ body {
 
 .navbar .logo {
     font-size: 40px;
-    color: #f55951;
-    text-shadow: 2px 2px 4px #57201d;
+    color: var(--color-text);
     font-weight: bold;
 }
 
@@ -70,7 +79,7 @@ body {
 .container h3 {
     margin-top: 80px;
     font-size: 26px;
-    color: #ef75ff;
+    color: var(--color-text-secondary);
 }
 
 .container .hide {
@@ -85,25 +94,25 @@ body {
 }
 
 button {
-    background-color: #f55951;
-    border: 4px solid #f55951;
+    background-color: var(--color-bg2);
+    border: none;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.25);
     border-radius: 20%;
-    box-shadow: 0px 0px 10px 0px #be00af;
     width: 200px;
     height: 200px;
     transition: 100ms;
+    cursor: pointer;
 }
 
 button:hover {
     transform: scale(1.1);
     transition: 100ms;
-    box-shadow: 0px 0px 30px 0px #ff6af3;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.05);
 }
 
 button:active {
     transform: scale(0.95);
     transition: 100ms;
-    box-shadow: 0px 0px 5px 0px #ff6af3;
 }
 
 /* Scoreboard */
@@ -119,21 +128,20 @@ button:active {
 .you {
     align-self: flex-start;
     font-size: 50px;
-    color: #af4eff;
+    color: var(--color-text);
 }
 
 .bot {
     align-self: flex-end;
     font-size: 50px;
-    color: #af4eff;
+    color: var(--color-text);
 }
 
 .score .container {
     display: flex;
     flex-direction: row;
     font-size: 80px;
-    color: #ef75ff;
-    text-shadow: 4px 4px 4px #873e91;
+    color: var(--color-accent);
     gap: 10px;
 }
 
@@ -147,27 +155,27 @@ button:active {
 #winner {
     font-size: 30px;
     font-weight: bold;
-    color: #ef75ff;
+    color: var(--color-text-light);
 }
 
 #user_output_active,
 #bot_output_active {
     transition-duration: 300ms;
-    background-color: #f55951;
-    border: solid 0.5em #f55951;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.25);
     border-radius: 20%;
     width: 200px;
     height: 200px;
+    background-color: var(--color-bg2);
 }
 
 #reset {
-    background-color: #361d32;
+    background-color: var(--color-bg2);
     align-self: center;
-    color: #f55951;
+    color: var(--color-text);
     font-family: Robot Reavers, Roboto, sans-serif;
     font-size: 18px;
     border-radius: 30px;
-    box-shadow: 0px 0px 10px 0px #be00af;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.25);
     width: 200px;
     height: 60px;
     transition: 100ms;
@@ -176,7 +184,7 @@ button:active {
 #reset:hover {
     transform: scale(1.1);
     transition: 100ms;
-    box-shadow: 0px 0px 30px 0px #ff6af3;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.05);
 }
 
 #reset:active {
@@ -194,11 +202,12 @@ button:active {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 60px;
+    height: 40px;
     width: auto;
     min-width: 780px;
-    background-color: #543c52;
+    background-color: var(--color-bg);
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.25);
     text-align: center;
-    font-size: 20px;
-    color: #f55951;
+    font-size: 14px;
+    color: var(--color-text-light);
 }
