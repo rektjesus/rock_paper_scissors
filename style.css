@@ -251,6 +251,8 @@ button:active {
         justify-content: center;
         margin-left: auto;
         margin-right: auto;
+        width: 90%;
+        padding: 0;
         max-height: 100%;
         gap: 20px;
     }
